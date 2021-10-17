@@ -1,0 +1,85 @@
+rank,origin,destination,continent,date,num
+2,China,South Korea,Asia,20/01/2020,-2
+3,China,United States,North America,21/01/2020,-3
+4,China,Hong Kong,Asia,21/01/2020,-4
+5,China,Taiwan,Asia,21/01/2020,-5
+6,China,Macau,Asia,22/01/2020,-6
+7,China,Singapore,Asia,23/01/2020,-7
+8,China,Nepal,Asia,24/01/2020,-8
+9,China,Vietnam,Asia,24/01/2020,-9
+10,China,France,Europe,24/01/2020,-10
+11,China,Malaysia,Asia,24/01/2020,-11
+12,China,Australia,Oceania,25/01/2020,-12
+13,China,Canada,North America,25/01/2020,-13
+14,China,Cambodia,Asia,27/01/2020,-14
+15,China,Sri Lanka,Asia,27/01/2020,-15
+16,China,Germany,Europe,27/01/2020,-16
+17,China,United Arab Emirates,Asia,29/01/2020,-17
+18,China,Finland,Europe,29/01/2020,-18
+19,China,India,Asia,30/01/2020,-19
+20,China,Philippines,Asia,30/01/2020,-20
+21,China,Russia,Europe,31/01/2020,-21
+22,China,Italy,Europe,31/01/2020,-22
+23,China,United Kingdom,Europe,31/01/2020,-23
+24,China,Japan,Asia,5/02/2020,-24
+25,China,Egypt,Africa,14/02/2020,-25
+26,China,Lebanon,Asia,21/02/2020,-26
+27,China,Israel,Asia,21/02/2020,-27
+28,China,Afghanistan,Asia,24/02/2020,-28
+29,China,Bahrain,Asia,24/02/2020,-29
+30,China,Iraq,Asia,24/02/2020,-30
+31,China,Kuwait,Asia,24/02/2020,-31
+32,China,Oman,Asia,24/02/2020,-32
+33,China,Algeria,Africa,25/02/2020,-33
+34,China,Austria,Europe,25/02/2020,-34
+35,China,Croatia,Europe,25/02/2020,-35
+36,China,Switzerland,Europe,25/02/2020,-36
+37,China,Brazil,South America,26/02/2020,-37
+38,China,Georgia,Asia,26/02/2020,-38
+39,China,Greece,Europe,26/02/2020,-39
+40,China,North Macedonia,Europe,26/02/2020,-40
+41,China,Norway,Europe,26/02/2020,-41
+42,China,Pakistan,Asia,26/02/2020,-42
+43,China,Romania,Europe,26/02/2020,-43
+44,China,Denmark,Europe,27/02/2020,-44
+45,China,Estonia,Europe,27/02/2020,-45
+46,China,Netherlands,Europe,27/02/2020,-46
+47,China,Nigeria,Africa,27/02/2020,-47
+48,China,San Marino,Europe,27/02/2020,-48
+49,China,Azerbaijan,Asia,28/02/2020,-49
+50,China,Belarus,Europe,28/02/2020,-50
+51,China,Iceland,Europe,28/02/2020,-51
+52,China,Lithuania,Europe,28/02/2020,-52
+53,China,New Zealand,Europe,28/02/2020,-53
+54,China,Mexico,North America,28/02/2020,-54
+55,China,Monaco,Europe,28/02/2020,-55
+56,China,Ecuador,South America,29/02/2020,-56
+57,China,Ireland,Europe,29/02/2020,-57
+58,China,Luxembourg,Europe,29/02/2020,-58
+59,China,Qatar,Asia,29/02/2020,-59
+60,China,Armenia,Asia,1/03/2020,-60
+61,China,Czechia,Europe,1/03/2020,-61
+62,China,Andorra,Europe,2/03/2020,-62
+63,China,Indonesia,Asia,2/03/2020,-63
+64,China,Jordan,Asia,2/03/2020,-64
+65,China,Morocco,Africa,2/03/2020,-65
+66,China,Portugal,Europe,2/03/2020,-66
+67,China,Saudi Arabia,Asia,2/03/2020,-67
+68,China,Senegal,Africa,2/03/2020,-68
+69,China,Tunisia,Africa,2/03/2020,-69
+70,China,Argentina,Europe,4/03/2020,-70
+71,China,Costa Rica,North America,6/03/2020,-71
+72,China,Colombia,South America,6/03/2020,-72
+73,China,Chile,South America,7/03/2020,-73
+74,China,Paraguay,South America,7/03/2020,-74
+75,China,Turkey,Asia,11/03/2020,-75
+76,China,Venezuela,South America,13/03/2020,-76
+77,China,Uruguay,South America,13/03/2020,-77
+78,China,Bahamas,North America,15/03/2020,-78
+79,China,Gambia,Africa,17/03/2020,-79
+80,China,Angola,Africa,21/03/2020,-80
+81,China,Eritrea,Africa,21/03/2020,-81
+82,China,Uganda,Africa,21/03/2020,-82
+83,China,Lesotho,Africa,13/05/2020,-83
+84,China,North Korea,Asia,25/07/2020,-84
+85,China,China,Asia,31/12/2019,-85
