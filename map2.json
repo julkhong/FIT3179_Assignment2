@@ -1,0 +1,162 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text":"COVID-19 Spread From China","fontSize":24},
+    "width": 800,
+    "height": 450,
+    "projection": {"type": "mercator"},
+    "params": [
+      {
+      "name": "Continent_selection",
+      "bind": {
+         "input": "select",
+         "options": [
+             null,
+             "North America",
+             "South America",
+             "Europe",
+             "Africa",
+             "Asia",
+             "Oceania"
+         ],
+         "labels":[
+             "Show All",
+             "North America",
+             "South America",
+             "Europe",
+             "Africa",
+             "Asia",
+             "Oceania"
+         ],
+         "name": "Continent Selection: "
+          }
+  }
+      ],
+    "layer":
+    [
+      {
+        "data": {
+          "url": "covid_map1/world.geo.json",
+          "format": {"type": "topojson", "feature": "custom.geo"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+        "encoding": {
+          "tooltip": [{
+            "field": "properties.name","title":"Country"
+          }]
+        }
+      },
+
+    {
+        "data": {
+          "url": "covid_map2/covid_spread.csv"
+        },
+        "transform": [
+          {"filter": "Continent_selection == null || datum.continent == Continent_selection"},
+          {
+            "lookup": "origin",
+            "from": {
+              "data": {
+                "url": "covid_map1/countries.json",
+                "format": {"type": "topojson", "feature": "countries"}
+
+              },
+              "key": "properties.name",
+              "fields": ["properties.longitude", "properties.latitude"]
+            },
+            "as": ["origin_longitude","origin_latitude"]
+          },
+          {
+            "lookup": "destination",
+            "from": {
+              "data": {
+                "url": "covid_map1/countries.json",
+                "format": {"type": "topojson", "feature": "countries"}
+              },
+              "key": "properties.name",
+              "fields": ["properties.longitude", "properties.latitude"]
+            },
+            "as": ["dest_longitude","dest_latitude"]
+          }
+        ],
+        
+        "mark": {"type": "line",
+        "point": true},
+        "encoding": {
+          "size":{"field":"num", "legend": null},
+          "color":{"field":"num", "scale":{"scheme":"reds"}},
+          "longitude": {
+            "field": "origin_longitude",
+            "type": "quantitative"
+          },
+          "latitude": {
+            "field": "origin_latitude",
+            "type": "quantitative"
+          },
+          "longitude2": {"field": "dest_longitude"},
+          "latitude2": {"field": "dest_latitude"},
+          "tooltip": [
+            {"field": "destination", "type": "nominal", "title": "Country"},
+            {"field": "date", "type": "ordinal", "title":"First case"}
+                  ]   
+        }
+      },
+      {
+        "data": {
+          "url": "covid_map2/covid_spread.csv"
+        },
+        "transform": [
+          {"filter": "Continent_selection == null || datum.continent == Continent_selection"},
+          {
+            "lookup": "destination",
+            "from": {
+              "data": {
+                "url": "covid_map1/countries.json",
+                "format": {"type": "topojson", "feature": "countries"}
+              },
+              "key": "properties.name",
+              "fields": ["properties.longitude", "properties.latitude"]
+            },
+            "as": ["dest_longitude","dest_latitude"]
+          }
+        ],
+        "encoding": {
+          "longitude": {
+            "field": "dest_longitude",
+            "type": "quantitative"
+          },
+          "latitude": {
+            "field": "dest_latitude",
+            "type": "quantitative"
+          }
+        },
+        "layer": [{
+          "mark": {
+            "type": "circle",
+            "color": "red"
+          }
+        }, {
+          "mark": {
+            "type": "text",
+            "dy": -10
+          },
+          "encoding": {
+            "text": {"field": "destination", "type": "nominal"},
+            "opacity": {
+              "condition": {
+              "test": "datum['destination'] == 'Malaysia' || datum['destination'] == 'Australia' || datum['destination'] == 'United States' || datum['destination'] == 'United Kingdom' || datum['destination'] == 'Canada' || datum['destination'] == 'Brazil' || datum['destination'] == 'Russia' || datum['destination'] == 'Japan' ||  datum['destination'] == 'China' || datum['destination'] == 'Angola' || datum['destination'] == 'New Zealand' || datum['destination'] == 'Mexico' || datum['destination'] == 'Japan' ",
+              "value": 1
+              },
+          "value": 0
+          }
+          }
+        }]
+      }
+],
+"config": {
+  "axis": {"labelFont": "Trebuchet MS", "titleFont": "Trebuchet MS"},
+  "legend": {"labelFont": "Trebuchet MS", "titleFont": "Trebuchet MS"},
+  "header": {"labelFont": "Trebuchet MS", "titleFont": "Trebuchet MS"},
+  "mark": {"font": "Trebuchet MS"},
+  "title": {"font": "Trebuchet MS", "subtitleFont": "Trebuchet MS"}
+}
+  }

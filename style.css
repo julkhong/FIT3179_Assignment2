@@ -1,0 +1,39 @@
+h1 {
+    font-family: 'Trebuchet MS';
+    background-color: #99badd;
+    text-align: center;
+    
+  }
+
+p {
+  font-family: 'Trebuchet MS';
+}
+span {
+  font-family: 'Trebuchet MS';
+}
+  
+.area_green {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  }
+
+
+.scatterplot{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+}
+.header{
+  text-align: center;
+  background-color: #999add;
+}
+
+
+.area{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}

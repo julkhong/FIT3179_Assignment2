@@ -1,0 +1,140 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text":"COVID-19 Total Vaccinations and Deaths per Million (24th September 2021)","fontSize":24},
+    "width": 750,
+    "height": 550,
+    "projection": {"type": "equirectangular"},
+    "params": [
+      {
+        "name": "Deaths_slider",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": 0,
+          "max": 3000,
+          "step": 500,
+          "name": "Minimum Deaths per Million: "
+        }
+        },
+        {
+          "name": "Vaccination_slider",
+          "value": 0,
+          "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 294919091,
+            "step": 5000,
+            "name": "Vaccination per Million: "
+          }
+          }
+      ],
+    "layer":
+    [
+      {
+        "data": {
+          "url": "covid_map1/world.geo.json",
+          "format": {"type": "topojson", "feature": "custom.geo"}
+        },
+        "transform": [
+          {"calculate": "'Data is not available in ' + datum.properties.name", "as": "note"}
+        ],
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+        "encoding": {
+          "tooltip": {
+            "field": "note"
+          }
+        }
+      },
+      {
+
+    "data": {
+      "url": "covid_map1/world.geo.json",
+      "format": {"type": "topojson", "feature": "custom.geo"}
+    },
+    "transform": [
+      
+      {
+        "lookup": "properties.name",
+        "from": {
+          "data": {
+            "url": "covid_map1/covid_data.csv"
+          },
+          "key": "country",
+          "fields": ["total_vaccination", "population"]
+        }
+      },
+      {"calculate": "datum.total_vaccination/datum.population * 1000000", "as": "Vaccination per Million"},
+      {"filter": "datum.total_vaccination/datum.population * 1000000 > Vaccination_slider"}
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "Vaccination per Million",
+        "type": "quantitative",
+        "legend":{"orient":"right"},
+        "scale":{"domain":[50000000, 100000000, 150000000, 200000000,250000000, 300000000 ], 
+          "range":["#99d8c9"
+            ,"#66c2a4"
+            ,"#41ae76"
+            ,"#238b45"
+            ,"#005824"]}
+      },
+    "tooltip": [
+        {"field": "properties.name", "type": "nominal", "title": "Country"},
+        {"field": "Vaccination per Million", "type": "quantitative", "title":"Total Vaccination per Million"}
+      ]
+    }
+    },
+    {
+        "data":{
+            "url": "covid_map1/ne_110m_rivers_lake_centerlines.json",
+            "format": {"type": "topojson", "feature": "ne_110m_rivers_lake_centerlines"}
+         },
+            "mark": {"type": "geoshape", "stroke": "lightblue"}
+    },
+    {
+        "data": {
+          "url": "covid_map1/countries.json",
+          "format": {"type": "topojson", "feature": "countries"}
+        },
+        "transform": [
+          {
+            "lookup": "properties.name",
+            "from": {
+              "data": {
+                "url": "covid_map1/covid_data.csv"
+              },
+              "key": "country",
+              "fields": ["total_deaths_per_million"]
+            }
+          },
+          {"filter": "datum.total_deaths_per_million > Deaths_slider"},
+          {"calculate": "datum.total_deaths_per_million", "as": "Total Deaths per Million"}
+        ],
+        "mark": {"type": "point", "filled": true},
+        "encoding": {
+            "longitude": {"field": "properties.longitude", "type": "quantitative"},
+            "latitude": {"field": "properties.latitude", "type": "quantitative"},
+            "size": {
+                "field": "Total Deaths per Million",
+                "type": "quantitative"
+                    },
+            "color":{"value":"red"},
+            "tooltip": [
+                {"field": "properties.name", "type": "nominal", "title": "Country"},
+                {"field": "total_deaths_per_million", "type": "quantitative", "title":"Total Deaths per One Million"}
+                      ]                
+                }
+            
+        }
+
+
+],
+"config": {
+  "axis": {"labelFont": "Trebuchet MS", "titleFont": "Trebuchet MS"},
+  "legend": {"labelFont": "Trebuchet MS", "titleFont": "Trebuchet MS"},
+  "header": {"labelFont": "Trebuchet MS", "titleFont": "Trebuchet MS"},
+  "mark": {"font": "Trebuchet MS"},
+  "title": {"font": "Trebuchet MS", "subtitleFont": "Trebuchet MS"}
+}
+  }

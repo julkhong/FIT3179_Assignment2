@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+<script src="vega_lite_vis.js"></script>
+
+<title>Assignment 2 - COVID-19</title>
+</head>
+
+<body>
+  <img src="coronavirus-blue-2.jpg"  width="1255" height="180">
+  <div class = "header"><span style="font-weight: bolder;font-size:45px;margin-left: 50px; ">Impact of COVID-19</span><span style='text-align: center;font-size: 10px;'>by Jun Ming Khong</span></div>
+
+<h1>Vaccinations and Deaths across the Globe</h1>
+<div style="width: 100%; overflow: hidden;">
+  <div id="covid_map" class="covid_map" style="width: 1000px; float: left;">
+  </div>
+  <div  style="margin-left: 620px;">
+    <br></br>
+    <br></br>
+    <br></br>
+  <p>As of 24th September 2021 COVID-19 has affected at least 150 countries with <span style="color:orange;font-size:30px" >219M</span> cases and <span style="color:maroon;font-size:30px" >4.55M</span> Deaths</p>
+  <p><span style="color:green;font-size:30px" >6.64B</span> doses of vaccinations were given. </p>
+  </div>
+</div>
+
+
+<h1>Total Cases by Continents</h1>
+
+<div style="width: 100%; overflow: hidden;">
+  <div style="width: 1000px; float: left;">
+  <div id = "radar1"></div><div id = "radar2"></div>
+  </div>
+
+  <div style="margin-left: 620px;">
+
+  <p> Note: All values are normalized to fit into the chart</p>
+  <br></br>
+  <p>In Malaysia, the ICU usage has reached <span style="color:orangered;font-size:28px" >84%</span>, hospitals in seven of Malaysia's 13 states reported that more than <span style="color:orangered;font-size:28px" >90%</span> of their ICU beds were being utilised for Covid-19 patients.</p>
+  
+  </div>
+</div>
+
+<h1>Factors contribute to Deaths</h1>
+<p><span style="font-weight: bolder;">17,456,515 individuals</span> were included. 17,063 died from COVID-19 and <span style="font-weight: bolder;">134,316 from other causes.</span>Most factors associated with COVID-19 death were similarly associated with non-COVID death, but the magnitudes of association differed. Similar associations of most individual-level factors with COVID-19 and non-COVID death suggest that COVID-19 largely multiplies existing risks faced by patients.</p>
+<p>Below are the relationships among few important criteria to determine the deaths of COVID-19 in a country.</p>
+<br></br>
+<div id = "scatterplot" class = "scatterplot"></div>
+
+<h1>COVID-19 Travels</h1>
+<div style="width: 100%; overflow: hidden;">
+  <div id = "flow_map" class = "spread_map" style="width: 1000px; float: left;"></div>
+
+  <div style="margin-left: 620px;">
+    <br></br>
+    <p> On 31 Dec 2019</p>
+    <p>Wuhan Municipal Health Commission, China, reported a cluster of cases of pneumonia in Wuhan, Hubei Province. A novel coronavirus was eventually identified.</p></p>
+    <span style="font-size: 20; font-weight: bolder;">How does COVID-19 spread between people?</span>
+    <p>The virus can spread from an infected person’s mouth or nose in small liquid particles when they cough, sneeze, speak, sing or breathe. These particles range from larger respiratory droplets to smaller aerosols.</p>
+  </div>
+
+</div>
+
+<h1> COVID-19 Cases of the World</h1>
+<p>The June 2020 Global Economic Prospects describes both the immediate and near-term outlook for the <span style="font-weight: bolder;font-size: 18px;">impact of the pandemic</span> and the long-term damage it has dealt to prospects for growth. The baseline forecast envisions a <span style="font-weight: bolder; font-size: 18px;">5.2 percent contraction in global GDP</span> in 2020, using market exchange rate weights—the deepest global recession in decades, despite the extraordinary efforts of governments to counter the downturn with fiscal and monetary policy support. </p>
+<br></br>
+<div style="width: 100%; overflow: hidden;">
+  <div style="width: 650px; float: left;">
+  <div id = "areachart2" class = "area"></div></div>
+  
+  <div style="margin-left: 620px;">
+  <div id = "areachart3" class = "area"></div>
+  </div>
+</div>
+
+  </div>
+<div id = "areachart" class = "area_green"></div>
+</body>
+
+</html>
+
