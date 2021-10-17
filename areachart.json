@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {"url": "https://raw.githubusercontent.com/julkhong/FIT3179-Assignment-2/master/owid_covid_data_true.csv"},
+    "data": {"url": "area_chart/owid_covid_data_true.csv"},
     "title":{"text":"Total COVID-19 Vaccinations of the World","fontSize":24},
     "transform": [
       {
